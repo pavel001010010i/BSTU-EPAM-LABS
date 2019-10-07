@@ -8,20 +8,20 @@ namespace Triangle
 {
     public class Triangle
     {
-        public static bool IsTriangle(double a, double b, double c, string str)
+        public static bool IsTriangle(double sideA, double sideAB, double sideC)
         {
-            return a > 0 && b > 0 && a + b > c && b + c > a && a + c > b;
+            return sideA > 0 && sideAB > 0 && sideA + sideAB > sideC && sideAB + sideC > sideA && sideA + sideC > sideAB;
         }
-        public static bool IsIsoscelesTriangle(double a, double b, double c, string str)
+        public static bool IsIsoscelesTriangle(double sideA, double sideB, double sideC)
         {
-            return IsTriangle(a, b, c, str) && (a == b || b == c || a == c);
+            return IsTriangle(sideA, sideB, sideC) && (sideA == sideB || sideB == sideC || sideA == sideC);
         }
-        public static bool IsRightTriangle(double a, double b, double c, string str)
+        public static bool IsRightTriangle(double sideA, double sideB, double sideC)
         {
-            return IsTriangle(a, b, c, str) &&
-                ((Math.Pow(a, 2) + Math.Pow(b, 2)) == Math.Pow(c, 2) ||
-                (Math.Pow(a, 2) + Math.Pow(c, 2)) == Math.Pow(b, 2) ||
-                (Math.Pow(b, 2) + Math.Pow(c, 2)) == Math.Pow(a, 2));
+            return IsTriangle(sideA, sideB, sideC) &&
+                ((Math.Pow(sideA, 2) + Math.Pow(sideB, 2)) == Math.Pow(sideC, 2) ||
+                (Math.Pow(sideA, 2) + Math.Pow(sideC, 2)) == Math.Pow(sideB, 2) ||
+                (Math.Pow(sideB, 2) + Math.Pow(sideC, 2)) == Math.Pow(sideA, 2));
         }
     }
     

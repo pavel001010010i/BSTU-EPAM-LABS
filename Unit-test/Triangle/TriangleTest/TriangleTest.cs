@@ -16,36 +16,36 @@ namespace TriangleTest
         {
             return GetEnumerator();
         }
-        public static IEnumerable<object[]> IsCheckingForAnIsoscelesTriangle()
+        public static IEnumerable<object[]> ValuesForTheIsoscelesTriangle()
         {
-            yield return new object[] { 12, 10, 10, "rectangular 12, 10, 10" };
-            yield return new object[] { 6, 6, 10, "rectangular 6, 6, 10" };
-            yield return new object[] { 5, 5, 5, "rectangular 5, 5, 5" };
+            yield return new object[] { 12, 10, 10 };
+            yield return new object[] { 6, 6, 10 };
+            yield return new object[] { 5, 5, 5 };
         }
-        public static IEnumerable<object[]> IsCheckingForAnRightTriangle()
+        public static IEnumerable<object[]> ValuesForTheStraightTriangle()
         {
-            yield return new object[] { 3, 4, 5, "rectangular 3, 4, 5" };
-            yield return new object[] { 6, 8, 10, "rectangular 6, 8, 10" };
-            yield return new object[] { 12, 16, 20, "rectangular 12, 15, 20" };
+            yield return new object[] { 3, 4, 5 };
+            yield return new object[] { 6, 8, 10 };
+            yield return new object[] { 12, 16, 20 };
         }
 
         [Theory]
-        [MemberData("IsCheckingForAnIsoscelesTriangle")]
-        public void IsTriangleIsosceles(double x, double y, double z, string st)
+        [MemberData("ValuesForTheIsoscelesTriangle")]
+        public void TestingForAnIsoscelesTriangle(double sideA, double sideB, double sideC)
         {
-            Assert.True(Triangle.Triangle.IsIsoscelesTriangle(x, y, z,st));
+            Assert.True(Triangle.Triangle.IsIsoscelesTriangle(sideA, sideB, sideC));
         }
         [Theory]
-        [MemberData("IsCheckingForAnRightTriangle")]
-        public void IsTriangleRightTest(double x, double y, double z, string st)
+        [MemberData("ValuesForTheStraightTriangle")]
+        public void TestForARightTriangle(double sideA, double sideB, double sideC)
         {
-            Assert.True(Triangle.Triangle.IsRightTriangle(x, y, z, st));
+            Assert.True(Triangle.Triangle.IsRightTriangle(sideA, sideB, sideC));
         }
         [Theory]
-        [InlineData(0,2,4,"0,2,4"), InlineData(0, 0, 0, "0,0,0"), InlineData(-1, 1, 2, "-1,1,2"), InlineData(0, 1, -1, "0,1-1")]
-        public void IsZeroAndNegativeSide(double x, double y, double z, string st)
+        [InlineData(0,2,4), InlineData(0, 0, 0), InlineData(-1, 1, 2), InlineData(0, 1, -1)]
+        public void TestForZeroAndNegativeValues(double sideA, double sideB, double sideC)
         {
-            Assert.False(Triangle.Triangle.IsTriangle(x, y, z, st));
+            Assert.False(Triangle.Triangle.IsTriangle(sideA, sideB, sideC));
         }
     }
 }
