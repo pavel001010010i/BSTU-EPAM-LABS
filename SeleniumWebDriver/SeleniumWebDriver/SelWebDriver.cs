@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
+using SeleniumWebDriver;
 
 namespace Tests
 {
@@ -54,7 +55,7 @@ namespace Tests
                 Browser.FindElement(By.XPath("/html/body/div/div/div/div/section[@class='ReservationDetailsView__reservationDetailsWrapper']/div/div/div/div/ul/li[2]")).Click();
                 Thread.Sleep(2000);
                 IWebElement ConfirmationOfTheCancellation = Browser.FindElement(By.ClassName("Button__buttonContent"));
-                Assert.IsTrue(ConfirmationOfTheCancellation.Enabled);
+                Assert.IsTrue(ConfirmationOfTheCancellation.IsEnabled());
             }
 
             [TearDown]
