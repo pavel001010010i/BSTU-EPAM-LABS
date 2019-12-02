@@ -32,7 +32,7 @@ namespace PageObject
         }
 
         [Test, Description("Test is not complete")]
-        public void TrainpalSearchOfTheCar()
+        public void TrainpalSearchForNonexistentCountry()
         {
 
             TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage TrainpalSearchOfTheCar = new TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage(Browser);
