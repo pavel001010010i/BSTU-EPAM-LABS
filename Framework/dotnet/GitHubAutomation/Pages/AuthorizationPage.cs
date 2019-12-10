@@ -20,16 +20,11 @@ namespace GitHubAutomation.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How = How.ClassName, Using = "LoginButton__circle")]
-        private readonly IWebElement SignInToYourAccount;
 
-        [FindsBy(How = How.CssSelector, Using = "UserDetails__link")]
-        private readonly IWebElement AccountOpen;
-
-        [FindsBy(How = How.ClassName, Using = "floatl__input")]
+        [FindsBy(How = How.ClassName, Using = "//*/div/div/input")]
         private readonly IWebElement InputLogin;
 
-        [FindsBy(How = How.ClassName, Using = "floatl__input")]
+        [FindsBy(How = How.XPath, Using = "//*/div[1]/div/input")]
         private readonly IWebElement InputPassword;
         public AuthorizationPage(IWebDriver driver) 
         {
@@ -38,9 +33,9 @@ namespace GitHubAutomation.Pages
         }
         public MainPage FillLogin(User user)
         {
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("floatl__input")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*/div/div/input")));
             InputLogin.SendKeys(user.Login + Keys.Enter);
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("floatl__input")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*/div[1]/div/input")));
             InputPassword.SendKeys(user.Password + Keys.Enter);
             return new MainPage(driver);
         }

@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Driver\DriverInstance.cs" />
+    <Compile Include="Driver\DriverSingle.cs" />
     <Compile Include="Model\CountryModel.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Pages\AuthorizationPage.cs" />
@@ -75,10 +75,10 @@
     <Compile Include="Pages\PersonalAccountPage.cs" />
     <Compile Include="Pages\ReservationPage.cs" />
     <Compile Include="Pages\ReservationСancellationPage.cs" />
-    <Compile Include="Pages\TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage.cs" />
+    <Compile Include="Pages\SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage.cs" />
     <Compile Include="Service\CreatorCountryModel.cs" />
     <Compile Include="Service\CreatorLogIn.cs" />
-    <Compile Include="Tests\TestConfig.cs" />
+    <Compile Include="Utils\ScreenShotsErrorTest.cs" />
     <Compile Include="Tests\Tests.cs" />
     <Compile Include="Utils\TestDataReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -25,14 +25,6 @@ namespace GitHubAutomation.Pages
         [FindsBy(How = How.XPath, Using = "//*div[@class='CustomerLayout__quickLinksWrapper']/ul/li[3]/a")]
         private readonly IWebElement ReservationItem;
 
-        [FindsBy(How = How.ClassName, Using = "floatl__input")]
-        private readonly IWebElement InputLogin;
-
-        [FindsBy(How = How.ClassName, Using = "floatl__input")]
-        private readonly IWebElement InputPassword;
-
-        [FindsBy(How = How.ClassName, Using = "LoginButton__label")]
-        private readonly IWebElement LogIn;
 
         [FindsBy(How = How.ClassName, Using = "LoginButton__circle")]
         private readonly IWebElement SignInToYourAccount;
@@ -45,12 +37,12 @@ namespace GitHubAutomation.Pages
             this.driver = driver;
         }
 
-        public TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage EnterTheCountry(CountryModel countryModel)
+        public SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage EnterTheCountry(CountryModel countryModel)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("SearchInput__isPickupAsReturn")));
             SearchInputCountry.SendKeys(countryModel.Country);
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("ErrorMessage__message")));
-            return new TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage(driver);
+            return new SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage(driver);
         }
 
 

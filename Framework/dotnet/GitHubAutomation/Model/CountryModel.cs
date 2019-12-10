@@ -8,7 +8,7 @@ namespace GitHubAutomation.Model
 {
     public class CountryModel
     {
-        private string Country { get; set; }
+        public string Country { get; set; }
 
         public CountryModel(string country)
         {

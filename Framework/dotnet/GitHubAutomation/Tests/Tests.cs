@@ -17,15 +17,15 @@ using OpenQA.Selenium.Support.Extensions;
 
 namespace GitHubAutomation.Tests
 {
-    public class Tests:TestConfig
+    public class Tests: ScreenShotsErrorTest
     {
         [Test, Description("Test is not complete")]
-        public void TrainpalSearchForNonexistentCountry()
+        public void SearchForNonexistentCountry()
         {
             MakeScreenshotWhenFail(() =>
             {
                 Driver.Navigate().GoToUrl("https://www.sixt.com/#/");
-                TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage trainpalSearchOfTheCar = new MainPage(Driver)
+                SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage trainpalSearchOfTheCar = new MainPage(Driver)
                          .EnterTheCountry(CreatorCountryModel.WithCountryProperties());
                 Assert.AreEqual(trainpalSearchOfTheCar.SelectError.Text, "Sorry, but there are no SIXT stations available near Indonesia!");
 
@@ -34,7 +34,7 @@ namespace GitHubAutomation.Tests
 
 
         [Test, Description("Test is not complete")]
-        public void TrainpalCancellationOfOrderOfConfirmation()
+        public void CancellationOfOrderOfConfirmation()
             {
             MakeScreenshotWhenFail(() =>
             {

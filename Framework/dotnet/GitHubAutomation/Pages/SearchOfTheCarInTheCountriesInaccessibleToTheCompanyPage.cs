@@ -15,7 +15,7 @@ using GitHubAutomation.Driver;
 
 namespace GitHubAutomation.Pages
 {
-    class TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage
+    class SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage
     {
         IWebDriver driver;
         [FindsBy(How = How.ClassName, Using = "SearchInput__isPickupAsReturn")]
@@ -25,7 +25,7 @@ namespace GitHubAutomation.Pages
         public IWebElement SelectError { get; private set; }
 
         [Obsolete]
-        public TrainpalSearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage(IWebDriver driver)
+        public SearchOfTheCarInTheCountriesInaccessibleToTheCompanyPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
             this.driver = driver;
