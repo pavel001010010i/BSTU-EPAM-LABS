@@ -10,11 +10,11 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace GitHubAutomation.Driver
 {
-    public class DriverInstance
+    public class DriverSingle
     {
         private static IWebDriver driver;
 
-        private DriverInstance() { }
+        private DriverSingle() { }
 
         public static IWebDriver GetInstance()
         {

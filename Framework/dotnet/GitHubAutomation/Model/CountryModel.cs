@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GitHubAutomation.Model
 {
-    class CountryModel
+    public class CountryModel
     {
-        public string Country { get; set; }
+        private string Country { get; set; }
 
         public CountryModel(string country)
         {

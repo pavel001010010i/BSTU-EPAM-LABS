@@ -7,14 +7,14 @@ using OpenQA.Selenium.Support.Extensions;
 
 namespace GitHubAutomation.Tests
 {
-    public class TestConfig
+    public class ScreenShotsErrorTest
     {
         protected IWebDriver Driver { get; set; }
 
         [SetUp]
         public void Setter()
         {
-            Driver = DriverInstance.GetInstance();
+            Driver = DriverSingle.GetInstance();
         }
 
         protected void MakeScreenshotWhenFail(Action action)
@@ -25,10 +25,14 @@ namespace GitHubAutomation.Tests
             }
             catch
             {
+                DateTime time = DateTime.Now;
+                string dateToday = "_date_" + time.ToString("yyyy-MM-dd") + "_time_" + time.ToString("HH-mm-ss");
+                Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+             
                 string screenFolder = AppDomain.CurrentDomain.BaseDirectory + @"\screens";
                 Directory.CreateDirectory(screenFolder);
                 var screen = Driver.TakeScreenshot();
-                screen.SaveAsFile(screenFolder + @"\screen" + DateTime.Now.ToString("yy-MM-dd_hh-mm-ss") + ".png",
+                screen.SaveAsFile(screenFolder + "Exception" + dateToday + ".png",
                     ScreenshotImageFormat.Png);
                 throw;
             }
@@ -37,7 +41,7 @@ namespace GitHubAutomation.Tests
         [TearDown]
         public void ClearDriver()
         {
-            DriverInstance.CloseBrowser();
+            DriverSingle.CloseBrowser();
         }
     }
 }
