@@ -39,8 +39,6 @@ namespace Framework.Tests
         const string passwordChangeErrorText =
             "Your current password is wrong.";
 
-        private readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         [Test, Description("Test is not complete")]
         public void SearchForNonexistentCountry()
         {
@@ -48,8 +46,7 @@ namespace Framework.Tests
             MainPage trainpalSearchOfTheCar = new MainPage(driver)
                      .SearchInputCountrySendKeys(CreatorCountryModel.WithCountryProperties())
                      .SearchInputCountryItemClick();
-           log.Info("CookieAcceptClick");
-            Assert.AreEqual(trainpalSearchOfTheCar.selectError.Text, errorTextSearchCountryInWhichThereIsNoCompany);
+            Assert.AreEqual(trainpalSearchOfTheCar.SelectError(), errorTextSearchCountryInWhichThereIsNoCompany);
 
         }
 
@@ -96,7 +93,7 @@ namespace Framework.Tests
                       .PickupDateDeliveriesClick()
                       .ButtonShowerClick()
                       .SelectionGuaranteedCars();
-            Assert.AreEqual(foundOnlyGuaranteeTheModel.errorMessage.Text, guaranteedAutoSearchErrorText);
+            Assert.AreEqual(foundOnlyGuaranteeTheModel.ErrorMessage(), guaranteedAutoSearchErrorText);
         }
 
         [Test, Description("Test is not complete")]
@@ -113,7 +110,7 @@ namespace Framework.Tests
                      .ProfileNameSendKeys(CreatorLogIn.ConclusionNameAndNewAccount())
                      .FieldEmailSendKeys(CreatorLogIn.ConclusionNameAndNewAccount())
                      .ButtonAddProfileClick();
-            Assert.AreEqual(addCreditCard.errorMessage.Text, textOfTheResultOfAddingNewUser);
+            Assert.AreEqual(addCreditCard.ErrorMessage(), textOfTheResultOfAddingNewUser);
         }
 
         [Test, Description("Test is not complete")]
@@ -130,7 +127,7 @@ namespace Framework.Tests
                       .PickupDateDeliveriesClick()
                       .ButtonShowerClick()
                       .SearchForAgeLessThanEighteen();
-            Assert.AreNotEqual(rentCar.driveAgeValue.Text, minimumAgeSearchErrorText);
+            Assert.AreNotEqual(rentCar.DayPickerOut(), minimumAgeSearchErrorText);
         }
 
         [Test, Description("Test is not complete")]
@@ -147,7 +144,7 @@ namespace Framework.Tests
                       .PickupDateDeliveriesClick()
                       .ButtonShowerClick()
                       .SearchForTheNumberPlacesLessThanTwo();
-            Assert.AreNotEqual(rentCar.noOfSeatsValue.Text, "1");
+            Assert.AreNotEqual(rentCar.NoOfSeatsValue(), "1");
         }
 
         [Test, Description("Test is not complete")]
@@ -183,7 +180,7 @@ namespace Framework.Tests
                       .InputStationSendKeysAndClickCity(CreatorCountryModel.ChosenCountryAndSelectCity())
                       .InputStationSearchBelarusClick()
                       .ButtonFullListLocationClick();
-            Assert.AreEqual(representativeInTheCountry.sixLocationsInMinsk.Text, textOfSearchResultRepresentative);
+            Assert.AreEqual(representativeInTheCountry.SixLocationsInMinsk(), textOfSearchResultRepresentative);
         }
 
         [Test, Description("Test is not complete")]
@@ -198,7 +195,7 @@ namespace Framework.Tests
                      .ChangePasswordButtonClick()
                      .PasswordEntry(CreatorLogIn.ConclusionWrongPassword())
                      .ButtonSaveClick();
-            Assert.AreEqual(addCreditCard.errorMessage.Text, "Your current password is wrong.");
+            Assert.AreEqual(addCreditCard.ErrorMessage(), passwordChangeErrorText);
         }
 
     }

@@ -27,7 +27,7 @@ namespace Framework.Pages
         private readonly IWebElement fieldEmail;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'Dialog__headLine')]")]
-        public IWebElement errorMessage { get; set; }
+        private readonly IWebElement errorMessage;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='Button__buttonContent']")]
         private readonly IWebElement buttonAddProfile;
@@ -35,6 +35,10 @@ namespace Framework.Pages
         {
             PageFactory.InitElements(driver, this);
             this.driver = driver;
+        }
+        public string ErrorMessage()
+        {
+            return errorMessage.Text;
         }
         public ProfilesPage ProfileNameSendKeys(User user)
         {

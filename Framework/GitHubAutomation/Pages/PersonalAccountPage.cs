@@ -23,7 +23,7 @@ namespace Framework.Pages
         IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='NewPasswordForm__errorMessage']")]
-        public IWebElement errorMessage { get; set; }
+        private readonly IWebElement errorMessage;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='CustomerLayout__customerContent']//a[1]")]
         private readonly IWebElement selectCancelThisBooking;
@@ -55,6 +55,10 @@ namespace Framework.Pages
         [FindsBy(How = How.XPath, Using = "//div[@class='CustomerLayout__quickLinksWrapper']//li[1]//a[1]")]
         private readonly IWebElement accountItem;
 
+        public string ErrorMessage()
+        {
+            return errorMessage.Text;
+        }
         public PersonalAccountPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);

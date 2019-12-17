@@ -23,13 +23,13 @@ namespace Framework.Pages
         IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='DayPicker-Day DayPicker-Day--isDisabled'][contains(text(),'14')]")]
-        public IWebElement dayPicker { get; set; }
+        private readonly IWebElement dayPicker;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'OfferListView__offerListBar')]//li[1]")]
-        public IWebElement driveAgeValue { get; set; }
+        private readonly IWebElement driveAgeValue;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='PassengersFilter__valueMarker'][contains(text(),'2')]")]
-        public IWebElement noOfSeatsValue { get; set; }
+        private readonly IWebElement noOfSeatsValue;
 
         [FindsBy(How = How.XPath, Using = "//button[@class='Button__button 1200px']//div[@class='Button__buttonContent']")]
         public IWebElement addDriverButton { get; set; }
@@ -59,7 +59,7 @@ namespace Framework.Pages
         private readonly IWebElement vehicleTypeListThumb;
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'FilterError__errorText')]")]
-        public IWebElement errorMessage { get; set; }
+        private IWebElement errorMessage;
 
         [FindsBy(How = How.XPath, Using = "//input[@placeholder='Password']")]
         private readonly IWebElement InputPassword;
@@ -67,6 +67,24 @@ namespace Framework.Pages
         {
             PageFactory.InitElements(driver, this);
             this.driver = driver;
+        }
+
+        public string ErrorMessage()
+        {
+            return errorMessage.Text;
+        }
+        public string NoOfSeatsValue()
+        {
+            return noOfSeatsValue.Text;
+        }
+
+        public string DayPickerOut()
+        {
+            return dayPicker.Text;
+        }
+        public string DriveAgeValue()
+        {
+            return driveAgeValue.Text;
         }
         public CarRent SelectionGuaranteedCars()
         {

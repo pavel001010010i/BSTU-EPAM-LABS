@@ -24,7 +24,7 @@ namespace Framework.Pages
         private readonly string Url = "https://www.sixt.com/#/";
 
         [FindsBy(How = How.XPath, Using = "//div[@class='ErrorMessage__message']")]
-        public IWebElement selectError { get; set; }
+        private readonly IWebElement selectError;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='DayPicker-Day DayPicker-Day--isDisabled'][contains(text(),'14')]")]
         public IWebElement dayPicker { get; set; }
@@ -62,6 +62,10 @@ namespace Framework.Pages
         [FindsBy(How = How.XPath, Using = "//div[@class='UserDetails__link']//span[contains(text(),'Account')]")]
         private readonly IWebElement accountOpen;
 
+        public string SelectError()
+        {
+            return selectError.Text;
+        }
         public MainPage(IWebDriver driver) 
         {
             PageFactory.InitElements(driver, this);

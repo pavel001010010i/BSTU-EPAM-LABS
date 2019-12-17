@@ -23,7 +23,7 @@ namespace Framework.Pages
         IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//h3[contains(text(),'Sixt locations in Minsk')]")]
-        public IWebElement sixLocationsInMinsk { get; set; }
+        private readonly IWebElement sixLocationsInMinsk;
 
         [FindsBy(How = How.XPath, Using = "//input[@id='Station_location']")]
         private readonly IWebElement inputStation;
@@ -40,6 +40,10 @@ namespace Framework.Pages
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'SEE FULL LIST OF LOCATIONS')]")]
         private readonly IWebElement buttonFullListLocation;
 
+        public string SixLocationsInMinsk()
+        {
+            return sixLocationsInMinsk.Text;
+        }
         public RepresentativeInTheCountryPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
