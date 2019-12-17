@@ -12,7 +12,7 @@ using log4net.Config;
 
 namespace Framework.Tests
 {
-    public class ManagementTests : Logger
+    public class ManagerTests : Logger
     {
         public IWebDriver driver;
 
@@ -29,7 +29,7 @@ namespace Framework.Tests
         public void ClearDriver()
         {
             if (TestContext.CurrentContext.Result.Outcome == ResultState.Success)
-                Logger.OnTestSuccess();
+                Logger.WhenTestSuccess();
 
             if (TestContext.CurrentContext.Result.Outcome == ResultState.Failure||
                 TestContext.CurrentContext.Result.Outcome == ResultState.Error)

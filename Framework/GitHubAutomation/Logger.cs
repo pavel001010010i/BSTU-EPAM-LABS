@@ -22,10 +22,10 @@ namespace Framework
 
         public static void WhenTestFails()
         {
-            Log.Error("TestFailure");
+            Log.Error("TTestFails");
         }
 
-        public static void OnTestSuccess()
+        public static void WhenTestSuccess()
         {
             Log.Info("TestSuccess");
         }

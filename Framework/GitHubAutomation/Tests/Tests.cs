@@ -19,7 +19,7 @@ using log4net.Config;
 
 namespace Framework.Tests
 {
-    public class Tests: ManagementTests
+    public class Tests: ManagerTests
     {
         const string errorTextSearchCountryInWhichThereIsNoCompany =
             "Sorry, but there are no SIXT stations available near Indonesia!";
