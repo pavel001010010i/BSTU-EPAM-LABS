@@ -8,11 +8,11 @@ namespace Framework.Model
 {
     public class User
     {
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string NotCorrectPassword { get; set; }
-        public string UserName { get; set; }
-        public string NewEmail { get; set; }
+        private string Login { get; set; }
+        private string Password { get; set; }
+        private string NotCorrectPassword { get; set; }
+        private string UserName { get; set; }
+        private string NewEmail { get; set; }
 
         public User(string login, string password, string userName, string newEmail)
         {
