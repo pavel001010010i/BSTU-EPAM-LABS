@@ -16,7 +16,7 @@ namespace Framework.Utils
     {
         public IWebElement WaitWebElementLoad(IWebDriver driver,int timeout, By by)
         {
-            return new WebDriverWait(driver, TimeSpan.FromSeconds(timeout)).Until(ExpectedConditions.ElementIsVisible(by));
+            return new WebDriverWait(driver, TimeSpan.FromSeconds(timeout)).Until(ExpectedConditions.ElementToBeClickable(by));
         }
     }
 }
