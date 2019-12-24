@@ -14,7 +14,7 @@ namespace Framework.Utils
         {
             get
             {
-                var variableFromConsole = TestContext.Parameters.Get("environment");
+                var variableFromConsole = TestContext.Parameters.Get("env");
                 string file = string.IsNullOrEmpty(variableFromConsole) ? "qa" : variableFromConsole;
                 int index = AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin", StringComparison.Ordinal);
                 var configeMap = new ExeConfigurationFileMap
