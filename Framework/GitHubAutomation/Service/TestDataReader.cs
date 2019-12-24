@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace Framework.Utils
 {
-    public static class TestDataReader
+   public static class TestDataReader
     {
         static Configuration ConfigFile
         {
@@ -25,10 +25,10 @@ namespace Framework.Utils
                 return ConfigurationManager.OpenMappedExeConfiguration(configeMap, ConfigurationUserLevel.None);
             }
         }
-
-        public static string GetData(string key)
+       
+        public static KeyValueConfigurationElement GetData(string key)
         {
-            return ConfigFile.AppSettings.Settings[key]?.Value;
+            return ConfigFile.AppSettings.Settings[key];
         }
     }
 }
