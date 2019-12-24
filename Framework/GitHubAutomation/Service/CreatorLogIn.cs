@@ -12,17 +12,17 @@ namespace Framework.Service
     {
         public static User WithAllProperties()
         {
-            return new User(TestDataReader.GetData("Login"), TestDataReader.GetData("Password"),"","");
+            return new User(TestDataReader.GetData("Login").Value, TestDataReader.GetData("Password").Value, "","");
         }
 
         public static User ConclusionWrongPassword()
         {
-            return new User(TestDataReader.GetData("NotCorrectPassword"));
+            return new User(TestDataReader.GetData("NotCorrectPassword").Value);
         }
 
         public static User ConclusionNameAndNewAccount()
         {
-            return new User("","",TestDataReader.GetData("UserName"), TestDataReader.GetData("NewEmail"));
+            return new User("","",TestDataReader.GetData("UserName").Value, TestDataReader.GetData("NewEmail").Value);
         }
 
     }

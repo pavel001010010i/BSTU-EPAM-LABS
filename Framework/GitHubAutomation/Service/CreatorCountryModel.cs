@@ -12,12 +12,12 @@ namespace Framework.Service
     {
         public static CountryModel WithCountryProperties()
         {
-            return new CountryModel(TestDataReader.GetData("Country"),TestDataReader.GetData("CountryBelarus"),"","");
+            return new CountryModel(TestDataReader.GetData("Country").Value,TestDataReader.GetData("CountryBelarus").Value, "","");
         }
 
         public static CountryModel ChosenCountryAndSelectCity()
         {
-            return new CountryModel("","",TestDataReader.GetData("ChosenCountry"), TestDataReader.GetData("SelectCity"));
+            return new CountryModel("","",TestDataReader.GetData("ChosenCountry").Value, TestDataReader.GetData("SelectCity").Value);
         }
     }
 }
