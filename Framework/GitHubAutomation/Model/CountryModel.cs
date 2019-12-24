@@ -8,10 +8,10 @@ namespace Framework.Model
 {
     public class CountryModel
     {
-        private string Country { get; set; }
-        private string CountryBelarus { get; set; }
-        private string ChosenCountry { get; set; }
-        private string SelectCity { get; set; }
+        public string Country { get; set; }
+        public string CountryBelarus { get; set; }
+        public string ChosenCountry { get; set; }
+        public string SelectCity { get; set; }
 
 
         public CountryModel(string country, string countryBelarus, string chosenCountry, string selectCity)
